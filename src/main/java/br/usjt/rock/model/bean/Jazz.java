@@ -13,6 +13,10 @@ public class Jazz {
 	public Jazz() {
 		list.add("partidas");
 		list.add("campeonato");
+		list.add("setPartida");
+		list.add("set");
+		list.add("administrador");
+		list.add("login");
 	}
 
 	public boolean validatePath(String path) {
