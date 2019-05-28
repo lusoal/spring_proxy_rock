@@ -12,7 +12,7 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Entity
-@Table(name = "administrador")
+@Table(name = "tb_torcedores")
 public class Administrator implements Serializable {
 
 	private static final long serialVersionUID = 1L;
