@@ -9,7 +9,7 @@ import br.usjt.rock.model.bean.Administrator;
 @Repository
 public interface AdministratorRepo extends JpaRepository<Administrator, Long>{
 	
-	public static final String validaAdmin = "SELECT * FROM administrador WHERE email = ? AND senha = ?";
+	public static final String validaAdmin = "SELECT * FROM tb_torcedores WHERE email = ? AND senha = ?";
 	@Query(value = validaAdmin, nativeQuery = true)
 	Administrator findByEmailandSenha(String email, String senha);
 	
