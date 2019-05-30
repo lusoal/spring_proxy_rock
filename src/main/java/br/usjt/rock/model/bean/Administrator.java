@@ -21,10 +21,6 @@ public class Administrator implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 
-	@JsonProperty("nome")
-	@Column(nullable = false, length = 200)
-	private String nome;
-
 	@JsonProperty("email")
 	@Column(nullable = false, length = 200)
 	private String email;
@@ -39,14 +35,6 @@ public class Administrator implements Serializable {
 
 	public void setId(long id) {
 		this.id = id;
-	}
-
-	public String getNome() {
-		return nome;
-	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
 	}
 
 	public String getEmail() {
