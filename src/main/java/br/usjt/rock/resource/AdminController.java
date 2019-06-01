@@ -24,7 +24,7 @@ import br.usjt.rock.model.service.AdministratorService;
 import br.usjt.rock.model.service.UserService;
 
 @RestController
-@RequestMapping("/api/login/")
+@RequestMapping("/api/login")
 public class AdminController {
 
 	@Autowired
@@ -34,7 +34,7 @@ public class AdminController {
 
 	ObjectMapper mapper = new ObjectMapper();
 
-	@PostMapping()
+	@PostMapping
 	public ResponseEntity<?> realizarLogin(@RequestBody String user, @RequestParam("userType") String userType, HttpServletRequest request)
 			throws JsonParseException, JsonMappingException, IOException {
 		boolean validate = false;
