@@ -19,10 +19,9 @@ public class Config implements WebMvcConfigurer {
 	public void addInterceptors(InterceptorRegistry registry) {
 		//TODO: Verificar a possibilidade de validar todos os interceptors
 		registry.addInterceptor(new LoginInterceptor()).addPathPatterns("/**")
-		.excludePathPatterns("/api/login/", "/maestro/api/torcedor");
+		.excludePathPatterns("/api/login", "/maestro/api/torcedor");
 		registry.addInterceptor(new JazzInterceptor()).addPathPatterns("/jazz/**");
 		registry.addInterceptor(new MaestroInterceptor()).addPathPatterns("/maestro/**");
-		//.excludePathPatterns("/login", "/", "/fazerLogin")
 	}
 	
     @Override
