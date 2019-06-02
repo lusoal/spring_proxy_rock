@@ -33,17 +33,6 @@ public abstract class RestClient {
 		this.endPoint= endPoint;
 	}
 	
-	private void replaceInPathAndSetUrlRequestValue(HttpServletRequest request) {
-		String path = new UrlPathHelper().getPathWithinApplication(request);
-		path = validateApiEnum(path);
-		this.urlRequest = this.endPoint + path;
-	}
-	
-	private String replaceInPath(HttpServletRequest request) {
-		String path = new UrlPathHelper().getPathWithinApplication(request);
-		return validateApiEnum(path);
-	}
-	
 	private String validateApiEnum(String path) {
 		String result = "";
 		if (ApiEnum.MAESTRO.equals(this.api)) {
@@ -52,6 +41,15 @@ public abstract class RestClient {
 			result = path.replace("/jazz", "");
 		}
 		return result;
+	}
+	
+	private String replaceInPath(HttpServletRequest request) {
+		String path = new UrlPathHelper().getPathWithinApplication(request);
+		return validateApiEnum(path);
+	}
+	
+	private void replaceInPathAndSetUrlRequestValue(HttpServletRequest request) {
+		this.urlRequest = this.endPoint + replaceInPath(request);
 	}
 	
 	private String generateUrlRequestWithParams(HttpServletRequest request) {
@@ -101,7 +99,6 @@ public abstract class RestClient {
 		String param = generateUrlRequestWithParams(request);
 		validateParamsInRequest(request, param);
 
-		System.out.println("aqui ->"+ this.urlRequest);
 		try {
 			response = request(HttpMethod.GET, getHttpEntity(getHeaderDefaultContentTypeJson()));
 		} catch (HttpClientErrorException e) {
