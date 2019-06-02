@@ -12,13 +12,8 @@ public class AdministratorService {
 	@Autowired
 	AdministratorRepo adminRepo;
 
-	public boolean findUserByLoginAndSenha(Administrator adm) {
-		Administrator admin = adminRepo.findByEmailandSenha(adm.getEmail(), adm.getSenha());
-		if (admin != null) {
-			return true;
-		} else {
-			return false;
-		}
+	public Administrator findUserByLoginAndSenha(Administrator adm) {
+		return adminRepo.findByEmailandSenha(adm.getEmail(), adm.getSenha());
 	}
 
 	public boolean addUser(Administrator admin) {
