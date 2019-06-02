@@ -14,6 +14,7 @@ public class Maestro {
 		list.add("torcedor");
 		list.add("convenio");
 		list.add("experiencia");
+		list.add("administrador");
 	}
 
 	public boolean validatePath(String path) {
